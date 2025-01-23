@@ -1,0 +1,87 @@
+﻿@model IEnumerable<DisplayAccessData.Models.PLCControl>
+
+@{
+    ViewData["Title"] = "PLC Control";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="text-center">
+    <h1 class="display-4">PLCControl</h1>
+</div>
+<div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.DeviceName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Gateway)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CommandTag)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.StatusTag)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DataTag)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Download)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PLCType)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CPName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Message)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TimeSync)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DeviceName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Gateway)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CommandTag)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.StatusTag)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DataTag)
+                    </td>
+                    <td>
+                        <input type="checkbox" checked="@item.Download" />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PLCType)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CPName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Message)
+                    </td>
+                    <td>
+                        <input type="checkbox" checked="@item.TimeSync" />
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+

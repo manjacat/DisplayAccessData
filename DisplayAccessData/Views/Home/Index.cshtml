@@ -1,0 +1,45 @@
+﻿@model IEnumerable<DisplayAccessData.Models.EqpReservation>
+
+@{
+    ViewData["Title"] = "Eqp Reservations";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="text-center">
+    <h1 class="display-4">EqpReservations</h1>
+</div>
+<div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.BookSNo)</th>
+                <th>@Html.DisplayNameFor(model => model.RecordSource)</th>
+                <th>@Html.DisplayNameFor(model => model.Equipment)</th>
+                <th>@Html.DisplayNameFor(model => model.ActState)</th>
+                <th>@Html.DisplayNameFor(model => model.ActTime)</th>
+                <th>@Html.DisplayNameFor(model => model.DeactTime)</th>
+                <th>@Html.DisplayNameFor(model => model.CardEnable)</th>
+                <th>@Html.DisplayNameFor(model => model.Init)</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                foreach (var plc in Model)
+                {
+                    <tr>
+                        <td>@plc.BookSNo</td>
+                        <td>@plc.RecordSource</td>
+                        <td>@plc.Equipment</td>
+                        <td>
+                            <input type="checkbox" checked="@plc.ActState" />
+                        </td>
+                        <td>@plc.ActTime</td>
+                        <td>@plc.DeactTime</td>
+                        <td><input type="checkbox" checked="@plc.CardEnable" /></td>
+                        <td><input type="checkbox" checked="@plc.Init" /></td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
